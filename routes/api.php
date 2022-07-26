@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RestorantController;
 use App\Http\Controllers\RestorerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::post('/inscription', [RestorerController::class, 'store'])->name('restorers.store');
 
 Route::get('/inscription', [RestorerController::class, 'index'])->name('restorers.index');
+
+// //////////////////////////////////////////////////////////////////////////
+
+Route::post('/restorant', [RestorantController::class, 'store'])->name('restorants.store');
+
+Route::get('/restorant', [RestorantController::class, 'index'])->name('restorants.index');
