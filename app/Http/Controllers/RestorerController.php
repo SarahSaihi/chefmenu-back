@@ -11,7 +11,7 @@ class RestorerController extends Controller
     public function index()
     {
 
-        $restorers = Http::get('http://localhost:8082/inscription');
+        $restorers = Http::get('http://localhost:8080/inscription');
         $restorers = Restorer::all();
         return response()->json(['restorers' => $restorers]);
     }

@@ -13,13 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('restorants', function (Blueprint $table) {
+        Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
-            $table->string('nameRestorant');
+            $table->string('namerestaurant');
             $table->string('adress');
             $table->string('hours');
             $table->string('picture');
+            $table->string('message');
+            $table->unsignedBigInteger('restorer_id'); // Création de la colonne
             $table->timestamps();
+
+            $table->foreign('restorer_id')->references('id')->on('restorers'); // Ajoute la contrainte de clef étrangère
         });
     }
 
@@ -30,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('restorants');
+        Schema::dropIfExists('restaurants');
     }
 };
